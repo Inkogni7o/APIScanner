@@ -1,0 +1,2 @@
+[dependencies]
+rocket = "0.5"

@@ -1,0 +1,4 @@
+{
+  // A typical source alias, including JSONC syntax.
+  "compilerOptions": {"baseUrl": ".", "paths": {"@/*": ["src/*"]},},
+}

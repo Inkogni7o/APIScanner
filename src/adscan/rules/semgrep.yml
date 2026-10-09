@@ -1,0 +1,68 @@
+rules:
+  - id: adscan.python.dynamic-execution
+    languages: [python]
+    message: Review dynamic code or shell execution and the origin of its input.
+    severity: ERROR
+    metadata:
+      title: Dynamic execution (Semgrep)
+      confidence: MEDIUM
+    pattern-either:
+      - pattern: os.system(...)
+      - pattern: os.popen(...)
+      - pattern: subprocess.$FUNC(..., shell=True, ...)
+      - pattern: eval(...)
+      - pattern: exec(...)
+  - id: adscan.javascript.dynamic-execution
+    languages: [javascript, typescript]
+    message: Review dynamic code or shell execution and the origin of its input.
+    severity: ERROR
+    metadata:
+      title: Dynamic execution (Semgrep)
+      confidence: MEDIUM
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: child_process.exec(...)
+      - pattern: child_process.execSync(...)
+      - patterns:
+          - pattern-inside: |
+              import $CP from 'node:child_process';
+              ...
+          - pattern-either:
+              - pattern: $CP.exec(...)
+              - pattern: $CP.execSync(...)
+  - id: adscan.java.process-execution
+    languages: [java]
+    message: Review process execution and the origin of command arguments.
+    severity: WARNING
+    metadata:
+      title: Process execution (Semgrep)
+    pattern-either:
+      - pattern: Runtime.getRuntime().exec(...)
+      - pattern: new ProcessBuilder(...)
+  - id: adscan.go.process-execution
+    languages: [go]
+    message: Review process execution; shell interpreters with user input are dangerous.
+    severity: WARNING
+    metadata:
+      title: Process execution (Semgrep)
+    pattern: exec.Command(...)
+  - id: adscan.python.unsafe-deserialization
+    languages: [python]
+    message: Review whether untrusted input reaches unsafe deserialization.
+    severity: ERROR
+    metadata:
+      title: Unsafe deserialization (Semgrep)
+    pattern-either:
+      - pattern: pickle.loads(...)
+      - pattern: pickle.load(...)
+      - pattern: yaml.unsafe_load(...)
+  - id: adscan.rust.process-execution
+    languages: [rust]
+    message: Review process execution; shell interpreters with user input are dangerous.
+    severity: WARNING
+    metadata:
+      title: Process execution (Semgrep)
+    pattern-either:
+      - pattern: std::process::Command::new(...)
+      - pattern: tokio::process::Command::new(...)
+      - pattern: Command::new(...)

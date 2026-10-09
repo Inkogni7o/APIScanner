@@ -1,0 +1,449 @@
+{
+  "repository": "https://gitlab.com/gitlab-org/security-products/sast-rules",
+  "commit": "53bf5cf6df3c51b6c02110f5a638b5e6213666cd",
+  "modifications": "None; selected rule files are copied byte-for-byte.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "upstream_path": "LICENSE",
+      "sha256": "33acf42afdd03163d75fe856cb431e70710e0b5deede3362e6d1c4697cfe1c6a"
+    },
+    {
+      "path": "go/crypto/rule-insecure-ignore-host-key.yml",
+      "upstream_path": "go/crypto/rule-insecure-ignore-host-key.yml",
+      "sha256": "8b44db76de65512904ba20ea1eac327c682d50dfb2d0d8551e2915c8b417dc34",
+      "rule_ids": [
+        "go_crypto_rule-insecure-ignore-host-key"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "go/crypto/rule-tlsversion.yml",
+      "upstream_path": "go/crypto/rule-tlsversion.yml",
+      "sha256": "447cfe992de2ef972ae8ebda534653290c23d12a0860385401be779634891d9d",
+      "rule_ids": [
+        "go_crypto_rule-tlsversion"
+      ],
+      "license_notice": "# License: License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "go/filesystem/rule-decompression-bomb.yml",
+      "upstream_path": "go/filesystem/rule-decompression-bomb.yml",
+      "sha256": "219e19deb11a6e743a977ef91a98120554793b08bfc2f6a942ee38336401ad0a",
+      "rule_ids": [
+        "go_filesystem_rule-decompression-bomb"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "go/filesystem/rule-fileread.yml",
+      "upstream_path": "go/filesystem/rule-fileread.yml",
+      "sha256": "c14e6e3f658c59a4b62081768fe0d9ff4efaab151d9e84975e6411045e7aacec",
+      "rule_ids": [
+        "go_filesystem_rule-fileread"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "go/filesystem/rule-ziparchive.yml",
+      "upstream_path": "go/filesystem/rule-ziparchive.yml",
+      "sha256": "61744a438d8cf45470791ffac1bb6cc922a9165c0ce2a7a8279d54d335211e28",
+      "rule_ids": [
+        "go_filesystem_rule-ziparchive"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "go/injection/rule-ssrf.yml",
+      "upstream_path": "go/injection/rule-ssrf.yml",
+      "sha256": "dfe372da4c399d512cf19dcb118b613a10c3b0abe8a574c3994048ec6d98437e",
+      "rule_ids": [
+        "go_injection_rule-ssrf"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "go/injection/rule-template-injection.yml",
+      "upstream_path": "go/injection/rule-template-injection.yml",
+      "sha256": "ce15c5ef530e329743fe227fc45e81cdb36c1854943a6f6739544cec809683bc",
+      "rule_ids": [
+        "go_injection_rule-template-injection"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "go/leak/rule-pprof-endpoint.yml",
+      "upstream_path": "go/leak/rule-pprof-endpoint.yml",
+      "sha256": "0ae795faedd0501a871637b516770eb8599660e637c292b2ae519abbb8591566",
+      "rule_ids": [
+        "go_leak_rule-pprof-endpoint"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "go/sql/rule-concat-sqli.yml",
+      "upstream_path": "go/sql/rule-concat-sqli.yml",
+      "sha256": "faeaf36a51298ab0f4f56a77bdbbac9a5f97d4f2fe35cfb05cc69778eb81b760",
+      "rule_ids": [
+        "go_sql_rule-concat-sqli"
+      ],
+      "license_notice": "# License: Apache 2.0 (c) gosec"
+    },
+    {
+      "path": "java/cookie/rule-HttpResponseSplitting.yml",
+      "upstream_path": "java/cookie/rule-HttpResponseSplitting.yml",
+      "sha256": "9f37b3385a48bbf16f2a7872da4cdba38ed6c625a620f96b88302df4d590ede6",
+      "rule_ids": [
+        "java_cookie_rule-HttpResponseSplitting"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/cookie/rule-RequestParamToHeader.yml",
+      "upstream_path": "java/cookie/rule-RequestParamToHeader.yml",
+      "sha256": "0d40a67c62f374fe0462d8ba3e371a9515b16aefc78f43f921eca7643aa88b1b",
+      "rule_ids": [
+        "java_cookie_rule-RequestParamToHeader"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/crypto/rule-CipherDESInsecure.yml",
+      "upstream_path": "java/crypto/rule-CipherDESInsecure.yml",
+      "sha256": "aa785226525d9e05d59b3a8b6679c3a6ccb51b1549c95a35808c077f40d69913",
+      "rule_ids": [
+        "java_crypto_rule-CipherDESInsecure"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/crypto/rule-CipherECBMode.yml",
+      "upstream_path": "java/crypto/rule-CipherECBMode.yml",
+      "sha256": "14ac22e6185951e9d45f890f833929dc3fef7440f442a46aacaa61e73774a3c5",
+      "rule_ids": [
+        "java_crypto_rule-CipherECBMode"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/crypto/rule-NullCipher.yml",
+      "upstream_path": "java/crypto/rule-NullCipher.yml",
+      "sha256": "8ec84fc33a9ee19d593a9db5f64d43388a3c45daaeb52c829b2368c7389e279c",
+      "rule_ids": [
+        "java_crypto_rule-NullCipher"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/crypto/rule-RsaNoPadding.yml",
+      "upstream_path": "java/crypto/rule-RsaNoPadding.yml",
+      "sha256": "6d4de39369ee768f1d5bd0e5f1caed85e207e4f6c2d62772c8d471fd8ec69184",
+      "rule_ids": [
+        "java_crypto_rule-RsaNoPadding"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/endpoint/rule-HostnameVerifier.yml",
+      "upstream_path": "java/endpoint/rule-HostnameVerifier.yml",
+      "sha256": "7f451e5b346cb7e042dcc9afa11a6dc688431fb5d6c245723c471745ac2b28a3",
+      "rule_ids": [
+        "java_endpoint_rule-HostnameVerifier"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/endpoint/rule-X509TrustManager.yml",
+      "upstream_path": "java/endpoint/rule-X509TrustManager.yml",
+      "sha256": "9a84998103045a041d4c2b1d59ed24fea7a8ff84a23eb3f8a3e65be85e17ad53",
+      "rule_ids": [
+        "java_endpoint_rule-X509TrustManager"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/inject/rule-CommandInjection.yml",
+      "upstream_path": "java/inject/rule-CommandInjection.yml",
+      "sha256": "014d117a4fb6dd2a2cdf12b4e9cf085b757101ec2b69fac99031711a9517da95",
+      "rule_ids": [
+        "java_inject_rule-CommandInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/inject/rule-FileDisclosureSpringFramework.yml",
+      "upstream_path": "java/inject/rule-FileDisclosureSpringFramework.yml",
+      "sha256": "54c2d31af82cc2275d5d25ae785f04a734d98a14b7ce4aa05f961fbfcce7a86e",
+      "rule_ids": [
+        "java_inject_rule-FileDisclosureSpringFramework"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/inject/rule-LDAPInjection.yml",
+      "upstream_path": "java/inject/rule-LDAPInjection.yml",
+      "sha256": "384cda8b480dcfcdbbe03a37644e9ba6608ba893679bc9b10861630eb052aedc",
+      "rule_ids": [
+        "java_inject_rule-LDAPInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/inject/rule-OgnlInjection.yml",
+      "upstream_path": "java/inject/rule-OgnlInjection.yml",
+      "sha256": "74f21a649e1e12d2acbf4db533f86e8b9149560f0f2eeb073f8c4a1e30ca5838",
+      "rule_ids": [
+        "java_inject_rule-OgnlInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/inject/rule-SpotbugsPathTraversalAbsolute.yml",
+      "upstream_path": "java/inject/rule-SpotbugsPathTraversalAbsolute.yml",
+      "sha256": "e1b64c3e3ba41868981dc45fcd1300ea39b834fa0da9a6e8e32fea13e7b98402",
+      "rule_ids": [
+        "java_inject_rule-SpotbugsPathTraversalAbsolute"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/password/rule-ConstantDBPassword.yml",
+      "upstream_path": "java/password/rule-ConstantDBPassword.yml",
+      "sha256": "7cf5a7dd8107bba7c57e8f868ad44e0c9a945a0d1ee3197254af77862cde7350",
+      "rule_ids": [
+        "java_password_rule-ConstantDBPassword"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/password/rule-EmptyDBPassword.yml",
+      "upstream_path": "java/password/rule-EmptyDBPassword.yml",
+      "sha256": "6d5650e0a70cc8fd8a0c760b12c82e0f2f96eb9b0aec142bfea7ac896853ff87",
+      "rule_ids": [
+        "java_password_rule-EmptyDBPassword"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/script/rule-ScriptInjection.yml",
+      "upstream_path": "java/script/rule-ScriptInjection.yml",
+      "sha256": "48160f5b16bf83d33c6d0e4c8fbe0bd3afdd7e9354d8d7973265c1053c5d4eee",
+      "rule_ids": [
+        "java_script_rule-ScriptInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/script/rule-SpringSpelExpressionParser.yml",
+      "upstream_path": "java/script/rule-SpringSpelExpressionParser.yml",
+      "sha256": "23d8102688842dec379bf72fc736d1806d66e2cd7311b66cec671cda5090cb08",
+      "rule_ids": [
+        "java_script_rule-SpringSpelExpressionParser"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/ssrf/rule-SSRF.yml",
+      "upstream_path": "java/ssrf/rule-SSRF.yml",
+      "sha256": "f90b16a033527bedf9f7b65d1d77fa105e0e26f4dc5c4456b3f386f3d137db02",
+      "rule_ids": [
+        "java_ssrf_rule-SSRF"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/templateinjection/rule-TemplateInjection.yml",
+      "upstream_path": "java/templateinjection/rule-TemplateInjection.yml",
+      "sha256": "65dad71cc9e5c05f76ba093e750e19998505024ae51081326eab3ead647eab32",
+      "rule_ids": [
+        "java_templateinjection_rule-TemplateInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/xml/rule-XmlDecoder.yml",
+      "upstream_path": "java/xml/rule-XmlDecoder.yml",
+      "sha256": "4acabd60252b9c8e3cd88db36d82fee5f00e996cdd67e013c0fabdd79f167e77",
+      "rule_ids": [
+        "java_xml_rule-XmlDecoder"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/xss/rule-XSSReqParamToServletWriter.yml",
+      "upstream_path": "java/xss/rule-XSSReqParamToServletWriter.yml",
+      "sha256": "66ff4772b63ce376e9431741ce91815de06bc378996d1e1349db4f7161079da4",
+      "rule_ids": [
+        "java_xss_rule-XSSReqParamToServletWriter"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "java/xxe/rule-XMLRdr.yml",
+      "upstream_path": "java/xxe/rule-XMLRdr.yml",
+      "sha256": "81f22ba0c74b34dd2effa345173ebf77ba478e9397e8850956aedbcec27bf111",
+      "rule_ids": [
+        "java_xxe_rule-XMLRdr"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "javascript/dos/rule-non-literal-regexp.yml",
+      "upstream_path": "javascript/dos/rule-non-literal-regexp.yml",
+      "sha256": "5178adc3e41175c46b4f0b377cfc87de5bb5d7580af75a32bbfb183f5feb22ff",
+      "rule_ids": [
+        "javascript_dos_rule-non-literal-regexp"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "javascript/pathtraversal/rule-non-literal-fs-filename.yml",
+      "upstream_path": "javascript/pathtraversal/rule-non-literal-fs-filename.yml",
+      "sha256": "429484d0b1c907ec22f6416c97ca8b0a46d8e8a23683384de0d0c4e6b0344169",
+      "rule_ids": [
+        "javascript_pathtraversal_rule-non-literal-fs-filename"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "javascript/react/rule-dangerouslysetinnerhtml.yml",
+      "upstream_path": "javascript/react/rule-dangerouslysetinnerhtml.yml",
+      "sha256": "1a43ece6a249e7486bfb156a4bfc0ea7043d477e36d52442b07fd9291ae60e68",
+      "rule_ids": [
+        "javascript_react_rule-dangerouslysetinnerhtml"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "javascript/xss/rule-mustache-escape.yml",
+      "upstream_path": "javascript/xss/rule-mustache-escape.yml",
+      "sha256": "58ca5a063f5f919333c79d7e8adb4f16575ae963fede25589ea0f32fe2b36549",
+      "rule_ids": [
+        "javascript_xss_rule-mustache-escape"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/deserialization/rule-dill.yml",
+      "upstream_path": "python/deserialization/rule-dill.yml",
+      "sha256": "33c5f3b59b33ba8eb1b8f68b6e404d821d5c1c9eda5f3c919784ab4e2ec87fef",
+      "rule_ids": [
+        "python_deserialization_rule-dill"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/deserialization/rule-marshal.yml",
+      "upstream_path": "python/deserialization/rule-marshal.yml",
+      "sha256": "0a028a60ea0453bafe18c0eb865b9a72a200a5b13aa7d2dd49efb13870ca0dfb",
+      "rule_ids": [
+        "python_deserialization_rule-marshal"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/deserialization/rule-shelve.yml",
+      "upstream_path": "python/deserialization/rule-shelve.yml",
+      "sha256": "c7e2ac0f2571009e65d9596adeffed22ab962270774a046a0cdd5afd9857d1bb",
+      "rule_ids": [
+        "python_deserialization_rule-shelve"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/deserialization/rule-yaml-load.yml",
+      "upstream_path": "python/deserialization/rule-yaml-load.yml",
+      "sha256": "f356f893e9b58b637209f0079bc3f60ff4d84b4b3c46858333682d2682e50572",
+      "rule_ids": [
+        "python_deserialization_rule-yaml-load"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/django/rule-django-extra-used.yml",
+      "upstream_path": "python/django/rule-django-extra-used.yml",
+      "sha256": "37dcc477c25cc1cd092581ec2efc629ca221f4a11675f161e563d276bc3c8576",
+      "rule_ids": [
+        "python_django_rule-django-extra-used"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/escaping/rule-jinja2-autoescape-false.yml",
+      "upstream_path": "python/escaping/rule-jinja2-autoescape-false.yml",
+      "sha256": "4a6273aa13150b0e0a7810e601ccac7fbf24e4b26add58a638424f0789112826",
+      "rule_ids": [
+        "python_escaping_rule-jinja2-autoescape-false"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/files/rule-tarfile-unsafe-members.yml",
+      "upstream_path": "python/files/rule-tarfile-unsafe-members.yml",
+      "sha256": "01d488fa3f0b7de5643e5bf5289e3201c9078ed3334f7f874ad0121609e86531",
+      "rule_ids": [
+        "python_files_rule-tarfile-unsafe-members"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/flask/rule-app-debug.yml",
+      "upstream_path": "python/flask/rule-app-debug.yml",
+      "sha256": "6dfa6301da8474b8f57c319bdc4f114decd8ffc08aea393ce51749a9cd42b0cf",
+      "rule_ids": [
+        "python_flask_rule-app-debug"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/log/rule-logging-config-insecure-listen.yml",
+      "upstream_path": "python/log/rule-logging-config-insecure-listen.yml",
+      "sha256": "581ff4351a7333e103c735f47f8f1a8f9c6e94981eddc0b789e5e44cd10c0994",
+      "rule_ids": [
+        "python_log_rule-logging-config-insecure-listen"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/sql/rule-hardcoded-sql-expression.yml",
+      "upstream_path": "python/sql/rule-hardcoded-sql-expression.yml",
+      "sha256": "0b3efb24d1e631ba2704bf2af3edef7a173990f12f46b107b9128b9ec0ce2323",
+      "rule_ids": [
+        "python_sql_rule-hardcoded-sql-expression"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/ssh/rule-ssh-nohost-key-verification.yml",
+      "upstream_path": "python/ssh/rule-ssh-nohost-key-verification.yml",
+      "sha256": "eeb3ea435e58b03e1dc7e1dadbf904a6533d8cddd18900c5b126a48686142b7b",
+      "rule_ids": [
+        "python_ssh_rule-ssh-nohost-key-verification"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/ssl/rule-req-no-certvalid.yml",
+      "upstream_path": "python/ssl/rule-req-no-certvalid.yml",
+      "sha256": "cf653caeafd1a007a964d2083be04c6b530ac8aee25de567ea34c42c7c6a94ff",
+      "rule_ids": [
+        "python_ssl_rule-req-no-certvalid"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "python/ssl/rule-unverified-context.yml",
+      "upstream_path": "python/ssl/rule-unverified-context.yml",
+      "sha256": "b895b4fa102fc0362652c0c6b59a52468c61a38fc9bf6ca5249267968eeb7bc4",
+      "rule_ids": [
+        "python_ssl_rule-unverified-context"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "LICENSE-gosec",
+      "source_url": "https://raw.githubusercontent.com/securego/gosec/master/LICENSE.txt",
+      "sha256": "2be0a81f30d2b73cb3b5182b969175245042158735fcc8af133929212c772e78"
+    }
+  ]
+}

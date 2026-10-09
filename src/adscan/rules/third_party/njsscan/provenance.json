@@ -1,0 +1,188 @@
+{
+  "repository": "https://github.com/ajinabraham/njsscan",
+  "commit": "4137df39e743e07e912a31ca7dab19633f40324a",
+  "modifications": "None; selected rule files are copied byte-for-byte.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "upstream_path": "LICENSE",
+      "sha256": "a5681bf9b05db14d86776930017c647ad9e6e56ff6bbcfdf21e5848288dfaf1b"
+    },
+    {
+      "path": "crypto/tls_node.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/crypto/tls_node.yaml",
+      "sha256": "5373c4ce4273c4201ceedc6aed60913c10bea17cc31e5231b271e63f776143f0",
+      "rule_ids": [
+        "node_tls_reject",
+        "node_curl_ssl_verify_disable"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "database/nosql_injection.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/database/nosql_injection.yaml",
+      "sha256": "5cd75702e3b26c5780358da859ec1fe01771d5a9c593ab3778f0b386280cd8bd",
+      "rule_ids": [
+        "node_nosqli_js_injection"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "database/sql_injection.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/database/sql_injection.yaml",
+      "sha256": "be833403c0771139842f3737c6098f32ff0664340b49b5b0b5ee6f9f77ea91c2",
+      "rule_ids": [
+        "node_sqli_injection"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "database/sql_injection_knex.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/database/sql_injection_knex.yaml",
+      "sha256": "2cbe2954e82b23eef2a2f36cefcd25f4584a9c83d4583001a93190aef1503d4f",
+      "rule_ids": [
+        "node_knex_sqli_injection"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "eval/eval_deserialize.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/eval/eval_deserialize.yaml",
+      "sha256": "90445acf788809a2566eecb0054283ad6202325774c9b79e43a60de17fab9a75",
+      "rule_ids": [
+        "serializetojs_deserialize",
+        "node_deserialize"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "eval/eval_yaml_deserialize.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/eval/eval_yaml_deserialize.yaml",
+      "sha256": "3c80402d9e5ade13f76878e9bfc4a4524f36c6a9ee3e0729eb865cf2e06c3ab3",
+      "rule_ids": [
+        "yaml_deserialize"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "eval/server_side_template_injection.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/eval/server_side_template_injection.yaml",
+      "sha256": "4c814fec260d83a4744439367c84194eebe0d597d0f5f5de6aae49556c5f535b",
+      "rule_ids": [
+        "server_side_template_injection"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "exec/exec_shelljs.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/exec/exec_shelljs.yaml",
+      "sha256": "15c13d830e0844d5c43aba75fa593c31c0a2eda190d07b6e5a107e5636cab534",
+      "rule_ids": [
+        "shelljs_os_command_exec"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "headers/header_cors_star.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/headers/header_cors_star.yaml",
+      "sha256": "31a0a21e867d42d3a740f81f286ff0b41e49408be264a3293f761f142b7d51c6",
+      "rule_ids": [
+        "generic_cors",
+        "express_cors"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "headers/header_injection.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/headers/header_injection.yaml",
+      "sha256": "789d4b3472005adca38d0eda532f80036a9bb2ddbab1e147eb3be57ef959944f",
+      "rule_ids": [
+        "generic_header_injection"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "jwt/jwt_none_algorithm.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/jwt/jwt_none_algorithm.yaml",
+      "sha256": "34d31c6b5ae9ce805f905af680c1edc6366e9ac952b8b4a44976cbdbf390a10e",
+      "rule_ids": [
+        "node_jwt_none_algorithm"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "redirect/open_redirect.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/redirect/open_redirect.yaml",
+      "sha256": "a0f58b0b5ad1415e223c0bcaeb22efdee3fc757321fde99bf13c660e9bc473e3",
+      "rule_ids": [
+        "express_open_redirect",
+        "express_open_redirect2"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "ssrf/ssrf_node.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/ssrf/ssrf_node.yaml",
+      "sha256": "75c3cc50bed57afc77551f516b0508adb5fc6111e3becee09b5537deb8401ff4",
+      "rule_ids": [
+        "node_ssrf"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "traversal/archive_path_overwrite.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/traversal/archive_path_overwrite.yaml",
+      "sha256": "d6dc99740331e609bc54b2180f9fc6e74056f5f089dd414936a45db11850098c",
+      "rule_ids": [
+        "zip_path_overwrite",
+        "zip_path_overwrite2",
+        "admzip_path_overwrite",
+        "tar_path_overwrite"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "traversal/path_traversal.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/traversal/path_traversal.yaml",
+      "sha256": "621bbaf24bb98c8f9d7c004360c632906c6cf37490a89e8d6ceabdd0da0a8a8a",
+      "rule_ids": [
+        "generic_path_traversal"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "xml/xxe_node.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/xml/xxe_node.yaml",
+      "sha256": "a09c764d2de7eb692f61795ce561a07f050b3e802837499fe5b12a415dc171fa",
+      "rule_ids": [
+        "node_xxe"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "xss/xss_node.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/xss/xss_node.yaml",
+      "sha256": "d3d90fca0b3854a9570d64adfd5674e0da1b1ecd51314b58d8444d0e31a5572e",
+      "rule_ids": [
+        "express_xss"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "xss/xss_templates.yaml",
+      "upstream_path": "njsscan/rules/semantic_grep/xss/xss_templates.yaml",
+      "sha256": "d8afa5fadeba8b85db2552217206f796ceaf5627b5369d0756e279d8f03bc938",
+      "rule_ids": [
+        "handlebars_safestring",
+        "handlebars_noescape",
+        "squirrelly_autoescape"
+      ],
+      "license_notice": "LGPL-3.0 (repository LICENSE)"
+    },
+    {
+      "path": "COPYING-GPL-3.0",
+      "source_url": "https://www.gnu.org/licenses/gpl-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+[project]
+name = "adscan"
+version = "0.1.0"
+description = "Offline static attack-surface triage for web services"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.11,<3",
+    "tree-sitter>=0.25,<0.26",
+    "tree-sitter-go>=0.25,<0.26",
+    "tree-sitter-java>=0.23,<0.24",
+    "tree-sitter-javascript>=0.25,<0.26",
+    "tree-sitter-rust>=0.24,<0.25",
+    "tree-sitter-typescript>=0.23,<0.24",
+]
+
+[project.scripts]
+adscan = "adscan.cli:main"
+
+[project.optional-dependencies]
+semgrep = [
+    "semgrep>=1.150,<2",
+]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["pytest>=8.3", "ruff>=0.11", "mypy>=1.15"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/adscan"]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["AGENTS.md", ".project"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+exclude = ["tests/fixtures", ".project", ".uv-cache"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.13"
+files = ["src/adscan"]
+strict = true

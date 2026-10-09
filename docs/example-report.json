@@ -1,0 +1,793 @@
+{
+  "project": {
+    "name": "fastapi_vulnerable",
+    "languages": [
+      "Python"
+    ],
+    "frameworks": [
+      "FastAPI"
+    ],
+    "files_scanned": 2,
+    "files_parsed": 1,
+    "entry_points": [
+      "main.py"
+    ]
+  },
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/run",
+      "handler_name": "run",
+      "file": "main.py",
+      "line": 38,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "command",
+          "location": "query",
+          "type": "str",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [],
+      "called_functions": [
+        {
+          "name": "subprocess.run",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [
+        {
+          "name": "subprocess.run",
+          "category": "command",
+          "file": "main.py",
+          "line": 39,
+          "expression": "subprocess.run(command, shell=True, capture_output=True)",
+          "shell": true
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "command_injection",
+          "title": "Command Injection",
+          "severity": "CRITICAL",
+          "file": "main.py",
+          "line": 39,
+          "description": "HTTP input reaches a command or code execution operation. Review input validation, shell parsing and the executable selection; this flow alone does not prove exploitation.",
+          "source": {
+            "name": "command",
+            "location": "query",
+            "file": "main.py",
+            "line": 38
+          },
+          "sink": {
+            "name": "subprocess.run",
+            "category": "command",
+            "file": "main.py",
+            "line": 39,
+            "expression": "subprocess.run(command, shell=True, capture_output=True)",
+            "shell": true
+          },
+          "confidence": "HIGH",
+          "endpoint": "POST /run",
+          "dataflow": [
+            {
+              "expression": "command",
+              "file": "main.py",
+              "line": 38
+            },
+            {
+              "expression": "subprocess.run(command, shell=True, capture_output=True)",
+              "file": "main.py",
+              "line": 39
+            }
+          ]
+        }
+      ],
+      "score": 95,
+      "priority": "CRITICAL",
+      "score_reasons": [
+        {
+          "points": 20,
+          "reason": "command sink receives HTTP input"
+        },
+        {
+          "points": 25,
+          "reason": "client-controlled value reaches a sink"
+        },
+        {
+          "points": 15,
+          "reason": "statically recognized data flow"
+        },
+        {
+          "points": 10,
+          "reason": "authentication dependency not recognized"
+        },
+        {
+          "points": 25,
+          "reason": "shell or dynamic code execution"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/body-proxy",
+      "handler_name": "body_proxy",
+      "file": "main.py",
+      "line": 43,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "payload",
+          "location": "body",
+          "type": "ProxyInput",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [],
+      "called_functions": [
+        {
+          "name": "requests.get",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [
+        {
+          "name": "requests.get",
+          "category": "http",
+          "file": "main.py",
+          "line": 44,
+          "expression": "requests.get(payload.url)",
+          "shell": false
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "ssrf",
+          "title": "SSRF",
+          "severity": "HIGH",
+          "file": "main.py",
+          "line": 44,
+          "description": "HTTP input influences an outbound request URL. Review allowed destinations and redirects.",
+          "source": {
+            "name": "payload",
+            "location": "body",
+            "file": "main.py",
+            "line": 43
+          },
+          "sink": {
+            "name": "requests.get",
+            "category": "http",
+            "file": "main.py",
+            "line": 44,
+            "expression": "requests.get(payload.url)",
+            "shell": false
+          },
+          "confidence": "HIGH",
+          "endpoint": "POST /body-proxy",
+          "dataflow": [
+            {
+              "expression": "payload",
+              "file": "main.py",
+              "line": 43
+            },
+            {
+              "expression": "payload.url",
+              "file": "main.py",
+              "line": 44
+            },
+            {
+              "expression": "requests.get(payload.url)",
+              "file": "main.py",
+              "line": 44
+            }
+          ]
+        }
+      ],
+      "score": 80,
+      "priority": "HIGH",
+      "score_reasons": [
+        {
+          "points": 20,
+          "reason": "http sink receives HTTP input"
+        },
+        {
+          "points": 25,
+          "reason": "client-controlled value reaches a sink"
+        },
+        {
+          "points": 15,
+          "reason": "statically recognized data flow"
+        },
+        {
+          "points": 10,
+          "reason": "authentication dependency not recognized"
+        },
+        {
+          "points": 10,
+          "reason": "client-controlled outbound URL"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/json-proxy",
+      "handler_name": "json_proxy",
+      "file": "main.py",
+      "line": 48,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "payload",
+          "location": "body",
+          "type": "dict",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [],
+      "called_functions": [
+        {
+          "name": "requests.get",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [
+        {
+          "name": "requests.get",
+          "category": "http",
+          "file": "main.py",
+          "line": 49,
+          "expression": "requests.get(payload['url'])",
+          "shell": false
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "ssrf",
+          "title": "SSRF",
+          "severity": "HIGH",
+          "file": "main.py",
+          "line": 49,
+          "description": "HTTP input influences an outbound request URL. Review allowed destinations and redirects.",
+          "source": {
+            "name": "payload",
+            "location": "body",
+            "file": "main.py",
+            "line": 48
+          },
+          "sink": {
+            "name": "requests.get",
+            "category": "http",
+            "file": "main.py",
+            "line": 49,
+            "expression": "requests.get(payload['url'])",
+            "shell": false
+          },
+          "confidence": "HIGH",
+          "endpoint": "POST /json-proxy",
+          "dataflow": [
+            {
+              "expression": "payload",
+              "file": "main.py",
+              "line": 48
+            },
+            {
+              "expression": "payload['url']",
+              "file": "main.py",
+              "line": 49
+            },
+            {
+              "expression": "requests.get(payload['url'])",
+              "file": "main.py",
+              "line": 49
+            }
+          ]
+        }
+      ],
+      "score": 80,
+      "priority": "HIGH",
+      "score_reasons": [
+        {
+          "points": 20,
+          "reason": "http sink receives HTTP input"
+        },
+        {
+          "points": 25,
+          "reason": "client-controlled value reaches a sink"
+        },
+        {
+          "points": 15,
+          "reason": "statically recognized data flow"
+        },
+        {
+          "points": 10,
+          "reason": "authentication dependency not recognized"
+        },
+        {
+          "points": 10,
+          "reason": "client-controlled outbound URL"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/proxy",
+      "handler_name": "proxy",
+      "file": "main.py",
+      "line": 33,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "url",
+          "location": "query",
+          "type": "str",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [],
+      "called_functions": [
+        {
+          "name": "requests.get",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [
+        {
+          "name": "requests.get",
+          "category": "http",
+          "file": "main.py",
+          "line": 34,
+          "expression": "requests.get(url)",
+          "shell": false
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "ssrf",
+          "title": "SSRF",
+          "severity": "HIGH",
+          "file": "main.py",
+          "line": 34,
+          "description": "HTTP input influences an outbound request URL. Review allowed destinations and redirects.",
+          "source": {
+            "name": "url",
+            "location": "query",
+            "file": "main.py",
+            "line": 33
+          },
+          "sink": {
+            "name": "requests.get",
+            "category": "http",
+            "file": "main.py",
+            "line": 34,
+            "expression": "requests.get(url)",
+            "shell": false
+          },
+          "confidence": "HIGH",
+          "endpoint": "GET /proxy",
+          "dataflow": [
+            {
+              "expression": "url",
+              "file": "main.py",
+              "line": 33
+            },
+            {
+              "expression": "requests.get(url)",
+              "file": "main.py",
+              "line": 34
+            }
+          ]
+        }
+      ],
+      "score": 80,
+      "priority": "HIGH",
+      "score_reasons": [
+        {
+          "points": 20,
+          "reason": "http sink receives HTTP input"
+        },
+        {
+          "points": 25,
+          "reason": "client-controlled value reaches a sink"
+        },
+        {
+          "points": 15,
+          "reason": "statically recognized data flow"
+        },
+        {
+          "points": 10,
+          "reason": "authentication dependency not recognized"
+        },
+        {
+          "points": 10,
+          "reason": "client-controlled outbound URL"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/upload",
+      "handler_name": "upload",
+      "file": "main.py",
+      "line": 64,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "file",
+          "location": "file",
+          "type": "UploadFile",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [],
+      "called_functions": [
+        {
+          "name": "local.file.read",
+          "file": null,
+          "line": null
+        },
+        {
+          "name": "open",
+          "file": null,
+          "line": null
+        },
+        {
+          "name": "local.destination.write",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [
+        {
+          "name": "open",
+          "category": "file",
+          "file": "main.py",
+          "line": 66,
+          "expression": "open('/tmp/' + file.filename, 'wb')",
+          "shell": false
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "path_traversal",
+          "title": "Path Traversal",
+          "severity": "HIGH",
+          "file": "main.py",
+          "line": 66,
+          "description": "HTTP input influences a filesystem path. Review canonicalization and directory containment.",
+          "source": {
+            "name": "file",
+            "location": "file",
+            "file": "main.py",
+            "line": 64
+          },
+          "sink": {
+            "name": "open",
+            "category": "file",
+            "file": "main.py",
+            "line": 66,
+            "expression": "open('/tmp/' + file.filename, 'wb')",
+            "shell": false
+          },
+          "confidence": "HIGH",
+          "endpoint": "POST /upload",
+          "dataflow": [
+            {
+              "expression": "file",
+              "file": "main.py",
+              "line": 64
+            },
+            {
+              "expression": "file.filename",
+              "file": "main.py",
+              "line": 66
+            },
+            {
+              "expression": "'/tmp/' + file.filename",
+              "file": "main.py",
+              "line": 66
+            },
+            {
+              "expression": "open('/tmp/' + file.filename, 'wb')",
+              "file": "main.py",
+              "line": 66
+            }
+          ]
+        }
+      ],
+      "score": 80,
+      "priority": "HIGH",
+      "score_reasons": [
+        {
+          "points": 20,
+          "reason": "file sink receives HTTP input"
+        },
+        {
+          "points": 25,
+          "reason": "client-controlled value reaches a sink"
+        },
+        {
+          "points": 15,
+          "reason": "statically recognized data flow"
+        },
+        {
+          "points": 10,
+          "reason": "authentication dependency not recognized"
+        },
+        {
+          "points": 10,
+          "reason": "file upload parameter"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/files/{filename}",
+      "handler_name": "read_file",
+      "file": "main.py",
+      "line": 27,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "filename",
+          "location": "path",
+          "type": "str",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [],
+      "called_functions": [
+        {
+          "name": "open",
+          "file": null,
+          "line": null
+        },
+        {
+          "name": "local.handle.read",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [
+        {
+          "name": "open",
+          "category": "file",
+          "file": "main.py",
+          "line": 28,
+          "expression": "open('/tmp/' + filename)",
+          "shell": false
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "path_traversal",
+          "title": "Path Traversal",
+          "severity": "HIGH",
+          "file": "main.py",
+          "line": 28,
+          "description": "HTTP input influences a filesystem path. Review canonicalization and directory containment.",
+          "source": {
+            "name": "filename",
+            "location": "path",
+            "file": "main.py",
+            "line": 27
+          },
+          "sink": {
+            "name": "open",
+            "category": "file",
+            "file": "main.py",
+            "line": 28,
+            "expression": "open('/tmp/' + filename)",
+            "shell": false
+          },
+          "confidence": "HIGH",
+          "endpoint": "GET /files/{filename}",
+          "dataflow": [
+            {
+              "expression": "filename",
+              "file": "main.py",
+              "line": 27
+            },
+            {
+              "expression": "'/tmp/' + filename",
+              "file": "main.py",
+              "line": 28
+            },
+            {
+              "expression": "open('/tmp/' + filename)",
+              "file": "main.py",
+              "line": 28
+            }
+          ]
+        }
+      ],
+      "score": 70,
+      "priority": "HIGH",
+      "score_reasons": [
+        {
+          "points": 20,
+          "reason": "file sink receives HTTP input"
+        },
+        {
+          "points": 25,
+          "reason": "client-controlled value reaches a sink"
+        },
+        {
+          "points": 15,
+          "reason": "statically recognized data flow"
+        },
+        {
+          "points": 10,
+          "reason": "authentication dependency not recognized"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/private/files/{filename}",
+      "handler_name": "private_file",
+      "file": "main.py",
+      "line": 53,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "filename",
+          "location": "path",
+          "type": "str",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [
+        {
+          "name": "get_current_user",
+          "kind": "Depends",
+          "file": "main.py",
+          "line": 53,
+          "confidence": "MEDIUM"
+        }
+      ],
+      "called_functions": [
+        {
+          "name": "open('/tmp/' + filename).read",
+          "file": null,
+          "line": null
+        },
+        {
+          "name": "open",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [
+        {
+          "name": "open",
+          "category": "file",
+          "file": "main.py",
+          "line": 54,
+          "expression": "open('/tmp/' + filename)",
+          "shell": false
+        }
+      ],
+      "findings": [
+        {
+          "rule_id": "path_traversal",
+          "title": "Path Traversal",
+          "severity": "HIGH",
+          "file": "main.py",
+          "line": 54,
+          "description": "HTTP input influences a filesystem path. Review canonicalization and directory containment.",
+          "source": {
+            "name": "filename",
+            "location": "path",
+            "file": "main.py",
+            "line": 53
+          },
+          "sink": {
+            "name": "open",
+            "category": "file",
+            "file": "main.py",
+            "line": 54,
+            "expression": "open('/tmp/' + filename)",
+            "shell": false
+          },
+          "confidence": "HIGH",
+          "endpoint": "GET /private/files/{filename}",
+          "dataflow": [
+            {
+              "expression": "filename",
+              "file": "main.py",
+              "line": 53
+            },
+            {
+              "expression": "'/tmp/' + filename",
+              "file": "main.py",
+              "line": 54
+            },
+            {
+              "expression": "open('/tmp/' + filename)",
+              "file": "main.py",
+              "line": 54
+            }
+          ]
+        }
+      ],
+      "score": 60,
+      "priority": "HIGH",
+      "score_reasons": [
+        {
+          "points": 20,
+          "reason": "file sink receives HTTP input"
+        },
+        {
+          "points": 25,
+          "reason": "client-controlled value reaches a sink"
+        },
+        {
+          "points": 15,
+          "reason": "statically recognized data flow"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "handler_name": "health",
+      "file": "main.py",
+      "line": 22,
+      "framework": "FastAPI",
+      "parameters": [],
+      "auth": [],
+      "called_functions": [],
+      "sinks": [],
+      "findings": [],
+      "score": 0,
+      "priority": "INFO",
+      "score_reasons": []
+    },
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "handler_name": "get_user",
+      "file": "main.py",
+      "line": 58,
+      "framework": "FastAPI",
+      "parameters": [
+        {
+          "name": "id",
+          "location": "path",
+          "type": "int",
+          "required": true,
+          "alias": null
+        }
+      ],
+      "auth": [],
+      "called_functions": [
+        {
+          "name": "main.USERS.get",
+          "file": null,
+          "line": null
+        }
+      ],
+      "sinks": [],
+      "findings": [],
+      "score": 0,
+      "priority": "INFO",
+      "score_reasons": []
+    }
+  ],
+  "diagnostics": [],
+  "unmatched_findings": [],
+  "schema_version": "1.1",
+  "tool_version": "0.1.0"
+}

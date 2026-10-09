@@ -1,7 +1,7 @@
 {
   "repository": "https://gitlab.com/gitlab-org/security-products/sast-rules",
   "commit": "53bf5cf6df3c51b6c02110f5a638b5e6213666cd",
-  "modifications": "None; selected rule files are copied byte-for-byte.",
+  "modifications": "See per-file modifications; other files are copied byte-for-byte.",
   "files": [
     {
       "path": "LICENSE",
@@ -437,6 +437,213 @@
       "sha256": "b895b4fa102fc0362652c0c6b59a52468c61a38fc9bf6ca5249267968eeb7bc4",
       "rule_ids": [
         "python_ssl_rule-unverified-context"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/crypto/rule-CertificateValidationDisabled.yml",
+      "upstream_path": "csharp/crypto/rule-CertificateValidationDisabled.yml",
+      "sha256": "462cbd7629ec148ecd1ef5265d84809556af33ce484835a074a4577868775d2b",
+      "rule_ids": [
+        "csharp_crypto_rule-CertificateValidationDisabled"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/crypto/rule-WeakCipherAlgorithm.yml",
+      "upstream_path": "csharp/crypto/rule-WeakCipherAlgorithm.yml",
+      "sha256": "d3b96f2fd5e2563210848fd671305b00334e9801a8f976f0bdabc03e19fc60b2",
+      "rule_ids": [
+        "csharp_crypto_rule-WeakCipherAlgorithm"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/crypto/rule-WeakCipherMode.yml",
+      "upstream_path": "csharp/crypto/rule-WeakCipherMode.yml",
+      "sha256": "bb8a0f1ae5effbbacdb921b5f1875d9d8a3198133898cb12ed6ed42e77a663a1",
+      "rule_ids": [
+        "csharp_crypto_rule-WeakCipherMode"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/deserialization/rule-InsecureDeserialization.yml",
+      "upstream_path": "csharp/deserialization/rule-InsecureDeserialization.yml",
+      "sha256": "f76f0c7149adff1aaea89eee34110dea67dd0cf0657fa2d30c95e6aac24fe78f",
+      "rule_ids": [
+        "csharp_deserialization_rule-InsecureDeserialization"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/injection/rule-CommandInjection.yml",
+      "upstream_path": "csharp/injection/rule-CommandInjection.yml",
+      "sha256": "5a1f12f1fbb358abf67577e7354bf550b724da007ac768ea43ac892162b24059",
+      "rule_ids": [
+        "csharp_injection_rule-CommandInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/injection/rule-LdapInjection.yml",
+      "upstream_path": "csharp/injection/rule-LdapInjection.yml",
+      "sha256": "1267ed018f93792ff11daa4615059e2e8c64cb86d167729a34a91606790aa38c",
+      "rule_ids": [
+        "csharp_injection_rule-LdapInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/injection/rule-SQLInjection.yml",
+      "upstream_path": "csharp/injection/rule-SQLInjection.yml",
+      "sha256": "4f11305df5a307ce15998705fca4b3e69eae9b664c7162932e812809345c148c",
+      "rule_ids": [
+        "csharp_injection_rule-SQLInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/injection/rule-XPathInjection.yml",
+      "upstream_path": "csharp/injection/rule-XPathInjection.yml",
+      "sha256": "0f84b7e3bf44f31a93712b09054263deffae64b398a6c2ef621b40947533a34b",
+      "rule_ids": [
+        "csharp_injection_rule-XPathInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/injection/rule-XmlDocumentXXEInjection.yml",
+      "upstream_path": "csharp/injection/rule-XmlDocumentXXEInjection.yml",
+      "sha256": "f25f954abf94d999c2bc50186ca476a86666cf8bc3732a3e08e8531825f12ce6",
+      "rule_ids": [
+        "csharp_injection_rule-XmlDocumentXXEInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/injection/rule-XmlReaderXXEInjection.yml",
+      "upstream_path": "csharp/injection/rule-XmlReaderXXEInjection.yml",
+      "sha256": "25a97bbfc7d6b5375aaeeb3340d82d4cd5a2b230049ebfb95e1f51890d4655d7",
+      "rule_ids": [
+        "csharp_injection_rule-XmlReaderXXEInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/other/rule-UnsafeXSLTSettingUsed.yml",
+      "upstream_path": "csharp/other/rule-UnsafeXSLTSettingUsed.yml",
+      "sha256": "0acb5db5eec3715674152b6115fc857d98f4ccbc951f3123ffdbb8c8fd4c3fd8",
+      "rule_ids": [
+        "csharp_other_rule-UnsafeXSLTSettingUsed"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/path/rule-PathTraversal.yml",
+      "upstream_path": "csharp/path/rule-PathTraversal.yml",
+      "sha256": "eaf60803162fe42b2291c7672d37d4718026b53ba457603f5180006ca898a973",
+      "rule_ids": [
+        "csharp_path_rule-PathTraversal"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/xss/rule-HtmlElementXss.yml",
+      "upstream_path": "csharp/xss/rule-HtmlElementXss.yml",
+      "sha256": "c907d9031e12a8b3e0c488ba06c3506685050357b2a7a5ee5a3f2cc425214f1a",
+      "rule_ids": [
+        "csharp_xss_rule-HtmlElementXss"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "csharp/xss/rule-ScriptXss.yml",
+      "upstream_path": "csharp/xss/rule-ScriptXss.yml",
+      "sha256": "93bcb5e68b7b20c7c57e5de5500963bd1ea6c9c5d4e3695d347b1f4194a4a3eb",
+      "rule_ids": [
+        "csharp_xss_rule-ScriptXss"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/crypto/rule-CipherDESInsecure.yml",
+      "upstream_path": "scala/crypto/rule-CipherDESInsecure.yml",
+      "sha256": "81ee9cc8ae73efeb44fcde6fcc2a2a8c42a61cdd1f0897406eddae561e1395d9",
+      "rule_ids": [
+        "scala_crypto_rule-CipherDESInsecure"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/crypto/rule-CipherECBMode.yml",
+      "upstream_path": "scala/crypto/rule-CipherECBMode.yml",
+      "sha256": "f0b36009bdc4c544d805c254fb53c1cc030a3882937496a47dbe9c53ec853b64",
+      "rule_ids": [
+        "scala_crypto_rule-CipherECBMode"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/inject/rule-CommandInjection.yml",
+      "upstream_path": "scala/inject/rule-CommandInjection.yml",
+      "sha256": "3bed8434242e8f431ab72ab42eaef80e5721fbb47fc647b19348cfaea30f2085",
+      "rule_ids": [
+        "scala_inject_rule-CommandInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/inject/rule-SqlInjection.yml",
+      "upstream_path": "scala/inject/rule-SqlInjection.yml",
+      "sha256": "dc5eb42f73a31422cbe04afaed92aef9b5799b370b17b1ddac4fddebfebfc003",
+      "rule_ids": [
+        "scala_inject_rule-SqlInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/password/rule-ConstantDBPassword.yml",
+      "upstream_path": "scala/password/rule-ConstantDBPassword.yml",
+      "sha256": "50399d405dc8afca564bb8ec34e05d9990bf8669754cf4428af3778b4787831c",
+      "rule_ids": [
+        "scala_password_rule-ConstantDBPassword"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/script/rule-ScriptInjection.yml",
+      "upstream_path": "scala/script/rule-ScriptInjection.yml",
+      "sha256": "dba0960748cbb182307f450e88040fae1cc33ef42590cf1070a6fe16d4f64d3f",
+      "rule_ids": [
+        "scala_script_rule-ScriptInjection"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/ssrf/rule-SSRF.yml",
+      "upstream_path": "scala/ssrf/rule-SSRF.yml",
+      "sha256": "e1a13c7de3ba2047fade3de6029755ebd4a7479f9e92cf44466bf0b60e0dc114",
+      "rule_ids": [
+        "scala_ssrf_rule-SSRF"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/xml/rule-XmlDecoder.yml",
+      "upstream_path": "scala/xml/rule-XmlDecoder.yml",
+      "sha256": "e7ba1aff74e64f7b2c10709e4f4b6ab9f6cb950075f5d31ea9b3d1a1f295d634",
+      "rule_ids": [
+        "scala_xml_rule-XmlDecoder"
+      ],
+      "license_notice": "# License: MIT (c) GitLab Inc."
+    },
+    {
+      "path": "scala/xxe/rule-XMLRdr.yml",
+      "upstream_path": "scala/xxe/rule-XMLRdr.yml",
+      "sha256": "6fc72f356240a6cb359776ef9ba64b29fe8e9d6ed384a6b237340f5ca0e4759a",
+      "rule_ids": [
+        "scala_xxe_rule-XMLRdr"
       ],
       "license_notice": "# License: MIT (c) GitLab Inc."
     },

@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from adscan.config import Config
 from adscan.detector.framework import detect_frameworks
 from adscan.detector.language import detect_languages
@@ -68,3 +70,39 @@ def test_size_and_bad_encoding_are_diagnostics(tmp_path):
     assert scan.project.files_scanned == 2
     assert not scan.contents
     assert len(scan.diagnostics) == 2
+
+
+@pytest.mark.parametrize(
+    "name,language",
+    [
+        ("api.php", "PHP"),
+        ("view.phtml", "PHP"),
+        ("controller.cs", "C#"),
+        ("app.rb", "Ruby"),
+        ("tasks.rake", "Ruby"),
+        ("package.gemspec", "Ruby"),
+        ("Gemfile", "Ruby"),
+        ("Rakefile", "Ruby"),
+        ("server.kt", "Kotlin"),
+        ("script.kts", "Kotlin"),
+        ("server.scala", "Scala"),
+        ("build.sbt", "Scala"),
+        ("server.c", "C"),
+        ("api.h", "C"),
+        ("server.cpp", "C++"),
+        ("server.cc", "C++"),
+        ("server.cxx", "C++"),
+        ("server.C", "C++"),
+        ("api.hpp", "C++"),
+        ("api.hxx", "C++"),
+        ("api.hh", "C++"),
+    ],
+)
+def test_semgrep_languages_and_source_files_reach_the_selected_snapshot(tmp_path, name, language):
+    path = tmp_path / name
+    path.write_text("// selected source", encoding="utf-8")
+    project = scan_project(tmp_path, Config())
+    assert project.contents == {Path(name): "// selected source"}
+    assert project.project.languages == [language]
+    selected = scan_project(path, Config())
+    assert selected.contents == project.contents

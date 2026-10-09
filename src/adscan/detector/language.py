@@ -18,6 +18,24 @@ EXTENSIONS = {
     ".cs": "C#",
     ".csproj": "C#",
     ".php": "PHP",
+    ".phtml": "PHP",
+    ".rb": "Ruby",
+    ".rake": "Ruby",
+    ".gemspec": "Ruby",
+    ".kt": "Kotlin",
+    ".kts": "Kotlin",
+    ".scala": "Scala",
+    ".c": "C",
+    ".h": "C",
+    ".C": "C++",
+    ".cc": "C++",
+    ".cpp": "C++",
+    ".cxx": "C++",
+    ".c++": "C++",
+    ".hh": "C++",
+    ".hpp": "C++",
+    ".hxx": "C++",
+    ".h++": "C++",
 }
 MANIFESTS = {
     "pyproject.toml": "Python",
@@ -31,6 +49,10 @@ MANIFESTS = {
     "go.mod": "Go",
     "Cargo.toml": "Rust",
     "composer.json": "PHP",
+    "Gemfile": "Ruby",
+    "Gemfile.lock": "Ruby",
+    "Rakefile": "Ruby",
+    "build.sbt": "Scala",
 }
 
 

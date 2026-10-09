@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/ajinabraham/njsscan",
   "commit": "4137df39e743e07e912a31ca7dab19633f40324a",
-  "modifications": "None; selected rule files are copied byte-for-byte.",
+  "modifications": "See per-file modifications; other files are copied byte-for-byte.",
   "files": [
     {
       "path": "LICENSE",

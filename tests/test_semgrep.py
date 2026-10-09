@@ -317,3 +317,57 @@ def test_installed_semgrep_community_rules_find_real_flows_and_skip_safe_variant
         and finding.severity == "CRITICAL"
         for finding in report.unmatched_findings
     )
+
+
+@pytest.mark.skipif(
+    not os.getenv("ADSCAN_TEST_SEMGREP"),
+    reason="set ADSCAN_TEST_SEMGREP=1 to run installed Semgrep",
+)
+def test_installed_semgrep_additional_languages_and_safe_variants():
+    executable = Path(sys.executable).with_name(
+        "semgrep.exe" if sys.platform == "win32" else "semgrep"
+    )
+    report = scan(
+        FIXTURES / "semgrep_languages",
+        Config(semgrep_enabled=True, semgrep_binary=str(executable)),
+    )
+    assert report.project.languages == ["C", "C#", "C++", "Kotlin", "PHP", "Ruby", "Rust", "Scala"]
+    assert not report.diagnostics
+    findings = report.unmatched_findings + [
+        finding for endpoint in report.endpoints for finding in endpoint.findings
+    ]
+    expected = {
+        "server.c": {"raptor-format-string-bugs"},
+        "server.cpp": {"raptor-double-free"},
+        "Controller.cs": {"csharp_injection_rule-SQLInjection"},
+        "server.php": {
+            "sql-injection-php-apps3c",
+            "php-xss-echo-get-post",
+            "php-file-inclusion-superglobals",
+            "php-unserialize",
+        },
+        "server.rb": {
+            "ruby-sql-injection",
+            "ruby-command-injection",
+            "ruby-mass-assignment",
+            "ruby-insecure-deserialization",
+            "ruby-csrf-disabled",
+        },
+        "server.kt": {"sql-injection-kotlin-apps3c"},
+        "server.scala": {"scala_password_rule-ConstantDBPassword"},
+        "main.rs": {"rust-sql-injection", "rust-insecure-tls"},
+    }
+    for file, rules in expected.items():
+        found = {finding.rule_id for finding in findings if finding.file == "vulnerable/" + file}
+        assert {"semgrep:" + rule for rule in rules} <= found, (file, found)
+    assert not [finding for finding in findings if finding.file.startswith("safe/")]
+    assert all(not finding.endpoint for finding in report.unmatched_findings)
+    rust = next(endpoint for endpoint in report.endpoints if endpoint.path == "/rust/sql")
+    assert {finding.rule_id for finding in rust.findings} >= {
+        "semgrep:rust-sql-injection",
+        "semgrep:rust-insecure-tls",
+    }
+    assert any(
+        finding.severity == "CRITICAL" and finding.file.endswith(".scala")
+        for finding in report.unmatched_findings
+    )

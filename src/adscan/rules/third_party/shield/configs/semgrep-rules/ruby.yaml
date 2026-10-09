@@ -1,0 +1,145 @@
+rules:
+- id: ruby-sql-injection
+  languages: [ruby]
+  message: 'SQL query built with string interpolation or concatenation. Use parameterized
+    queries (e.g., where("name = ?", input)) or hash conditions (where(name: input))
+    to prevent SQL injection.
+
+    '
+  metadata:
+    category: security
+    confidence: HIGH
+    cwe: [CWE-89]
+    impact: CRITICAL
+    owasp: ['A03:2021 Injection']
+  patterns:
+  - pattern-either:
+    - {pattern: '$MODEL.where("...#{$INPUT}...")
+
+        '}
+    - {pattern: '$MODEL.find_by_sql("...#{$INPUT}...")
+
+        '}
+    - {pattern: '$CONN.execute("...#{$INPUT}...")
+
+        '}
+    - {pattern: '$MODEL.where("..." + $INPUT + "...")
+
+        '}
+    - {pattern: 'ActiveRecord::Base.connection.execute("...#{$INPUT}...")
+
+        '}
+  severity: ERROR
+- id: ruby-command-injection
+  languages: [ruby]
+  message: 'Shell command executed with interpolated user input. Use parameterized
+    forms like system("cmd", arg1, arg2) that bypass shell interpretation, or use
+    Shellwords.shellescape on each argument.
+
+    '
+  metadata:
+    category: security
+    confidence: HIGH
+    cwe: [CWE-78]
+    impact: CRITICAL
+    owasp: ['A03:2021 Injection']
+  patterns:
+  - pattern-either:
+    - {pattern: 'system("...#{$INPUT}...")
+
+        '}
+    - {pattern: 'exec("...#{$INPUT}...")
+
+        '}
+    - {pattern: '`...#{$INPUT}...`
+
+        '}
+    - {pattern: '%x(...#{$INPUT}...)
+
+        '}
+    - {pattern: 'IO.popen("...#{$INPUT}...")
+
+        '}
+    - {pattern: 'Kernel.system("...#{$INPUT}...")
+
+        '}
+  severity: ERROR
+- id: ruby-mass-assignment
+  languages: [ruby]
+  message: 'Mass assignment without strong parameters allows attackers to set arbitrary
+    model attributes. Always use params.require(:model).permit(:field1, :field2) to
+    whitelist allowed attributes.
+
+    '
+  metadata:
+    category: security
+    confidence: MEDIUM
+    cwe: [CWE-915]
+    impact: HIGH
+    owasp: ['A04:2021 Insecure Design']
+  patterns:
+  - pattern-either:
+    - {pattern: 'params.permit!
+
+        '}
+    - {pattern: '$MODEL.update(params)
+
+        '}
+    - {pattern: '$MODEL.new(params)
+
+        '}
+    - {pattern: '$MODEL.create(params)
+
+        '}
+    - {pattern: '$MODEL.update_attributes(params)
+
+        '}
+  severity: ERROR
+- id: ruby-insecure-deserialization
+  languages: [ruby]
+  message: 'YAML.load and Marshal.load can instantiate arbitrary Ruby objects, leading
+    to remote code execution. Use YAML.safe_load or JSON.parse for untrusted data.
+    Avoid Marshal entirely for external input.
+
+    '
+  metadata:
+    category: security
+    confidence: HIGH
+    cwe: [CWE-502]
+    impact: CRITICAL
+    owasp: ['A08:2021 Software and Data Integrity Failures']
+  patterns:
+  - pattern-either:
+    - {pattern: 'YAML.load($DATA)
+
+        '}
+    - {pattern: 'YAML.load($DATA, ...)
+
+        '}
+    - {pattern: 'Marshal.load($DATA)
+
+        '}
+    - {pattern: 'Marshal.restore($DATA)
+
+        '}
+  - {pattern-not: 'YAML.load($DATA, permitted_classes: ...)
+
+      '}
+  severity: ERROR
+- id: ruby-csrf-disabled
+  languages: [ruby]
+  message: 'CSRF protection is explicitly disabled for this controller or action.
+    This allows cross-site request forgery attacks. Only skip CSRF verification for
+    API endpoints that use token-based authentication.
+
+    '
+  metadata:
+    category: security
+    confidence: HIGH
+    cwe: [CWE-352]
+    impact: MEDIUM
+    owasp: ['A01:2021 Broken Access Control']
+  pattern: 'skip_before_action :verify_authenticity_token
+
+    '
+  severity: WARNING

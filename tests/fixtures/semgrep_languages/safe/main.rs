@@ -1,0 +1,13 @@
+use axum::{extract::Query, routing::get, Router};
+use std::collections::HashMap;
+
+async fn lookup(Query(params): Query<HashMap<String, String>>) -> String {
+    let name = &params["name"];
+    let client = reqwest::Client::builder().danger_accept_invalid_certs(false).build().unwrap();
+    let query = sqlx::query("SELECT name FROM users WHERE name = ?").bind(name);
+    format!("{:?}", query)
+}
+
+pub fn app() -> Router {
+    Router::new().route("/rust/safe", get(lookup))
+}

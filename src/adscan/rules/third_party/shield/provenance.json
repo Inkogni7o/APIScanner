@@ -1,0 +1,60 @@
+{
+  "repository": "https://github.com/alissonlinneker/shield-claude-skill",
+  "commit": "8336d1ba6048ff3e72c8dcee7e496d0cee87eb4b",
+  "modifications": "See per-file modifications; other files are copied byte-for-byte.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "upstream_path": "LICENSE",
+      "sha256": "fd3530627aa0bb44edc9025ba607d6dd380a18c1da48d24aacafce9dc793df99"
+    },
+    {
+      "path": "configs/semgrep-rules/php.yaml",
+      "upstream_path": "configs/semgrep-rules/php.yaml",
+      "sha256": "7d11e6b449bb4bde233d4aa413a33c0c5cf85a2b011e74ec24f473ae94624637",
+      "upstream_sha256": "06cb793317c973cff16db6e48bd32dc654c80a527eb4be97071d6c847e90b906",
+      "modifications": [
+        "Keep only the listed rule IDs; reserialize YAML."
+      ],
+      "rule_ids": [
+        "php-xss-echo-get-post",
+        "php-file-inclusion-superglobals",
+        "php-unserialize"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "configs/semgrep-rules/ruby.yaml",
+      "upstream_path": "configs/semgrep-rules/ruby.yaml",
+      "sha256": "2f1ea884e828ab36be77e4095162d4192d414e2939337231e583854765fb97d5",
+      "upstream_sha256": "bc2e03173f479b52be5adbfc38019e0e6c0e12ba5cf2c39f5197da9f408edcb4",
+      "modifications": [
+        "Keep only the listed rule IDs; reserialize YAML."
+      ],
+      "rule_ids": [
+        "ruby-sql-injection",
+        "ruby-command-injection",
+        "ruby-mass-assignment",
+        "ruby-insecure-deserialization",
+        "ruby-csrf-disabled"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "configs/semgrep-rules/rust.yaml",
+      "upstream_path": "configs/semgrep-rules/rust.yaml",
+      "sha256": "fd2fea32232b7d677d150132f9f64196fb3b26dc061d5d969cb87860ae8e370d",
+      "upstream_sha256": "771f524d5f40414b512cd108b97c19927a747e99b3db0a52ae07888cb24a6de7",
+      "modifications": [
+        "Keep only the listed rule IDs; reserialize YAML.",
+        "Add $CLIENT receiver to invalid standalone Rust method patterns."
+      ],
+      "rule_ids": [
+        "rust-sql-injection",
+        "rust-hardcoded-secrets",
+        "rust-insecure-tls"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    }
+  ]
+}

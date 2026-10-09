@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/federicodotta/semgrep-rules",
+  "commit": "51b9b69f4e74a857526a4b3d277a38d15a47853b",
+  "modifications": "See per-file modifications; other files are copied byte-for-byte.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "upstream_path": "LICENSE",
+      "sha256": "de7d8263e0e253fd34b50b258ab2b2a318d4f93e95d3724506d890660aeeba59"
+    },
+    {
+      "path": "php/lang/security/sql-injection-php-apps3c.yaml",
+      "upstream_path": "php/lang/security/sql-injection-php-apps3c.yaml",
+      "sha256": "fbdc06716682104bdf6bb19a8708a522fd85754460d5dd79d6556c2a01bb553c",
+      "rule_ids": [
+        "sql-injection-php-apps3c"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "kotlin/lang/security/sql-injection-kotlin-apps3c.yaml",
+      "upstream_path": "kotlin/lang/security/sql-injection-kotlin-apps3c.yaml",
+      "sha256": "5551b7655b3c72a29254d87b681c0688cce42c39355774ffbb01624f87b7309d",
+      "rule_ids": [
+        "sql-injection-kotlin-apps3c"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    }
+  ]
+}

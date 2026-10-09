@@ -1,0 +1,84 @@
+{
+  "repository": "https://github.com/0xdea/semgrep-rules",
+  "commit": "dae50da6e6e629750f1daec73a01ef9206a372ab",
+  "modifications": "See per-file modifications; other files are copied byte-for-byte.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "upstream_path": "LICENSE",
+      "sha256": "1f9dca8eb03ff3c87d77694e09b36a06485158a161c3614b0d45277bc6ddd767"
+    },
+    {
+      "path": "rules/c/command-injection.yaml",
+      "upstream_path": "rules/c/command-injection.yaml",
+      "sha256": "9853fbecd89048df3c6e941b3f494d9bfd33f6d3cdfc3312bd1c89e0e89ec5ae",
+      "rule_ids": [
+        "raptor-command-injection"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "rules/c/format-string-bugs.yaml",
+      "upstream_path": "rules/c/format-string-bugs.yaml",
+      "sha256": "d6127079635340bd65c9ea2b076401be1b365d552076d740df2eb65989593f5c",
+      "rule_ids": [
+        "raptor-format-string-bugs"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "rules/c/insecure-api-gets.yaml",
+      "upstream_path": "rules/c/insecure-api-gets.yaml",
+      "sha256": "184afb46808532ae024322322b0bc0171859ef833b79e8ee7ea47a84820d067f",
+      "rule_ids": [
+        "raptor-insecure-api-gets"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "rules/c/insecure-api-strcpy-strcat.yaml",
+      "upstream_path": "rules/c/insecure-api-strcpy-strcat.yaml",
+      "sha256": "87585575b9e92174efec337a5a7cbf4c17f176b9ad9a3988224caf8a3f420ed6",
+      "rule_ids": [
+        "raptor-insecure-api-strcpy-strcat"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "rules/c/double-free.yaml",
+      "upstream_path": "rules/c/double-free.yaml",
+      "sha256": "7f97efbc6bd0c73e55aa762341323218ef80ce05e13f9c767ccc6ba7c7a9f56e",
+      "rule_ids": [
+        "raptor-double-free"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "rules/c/use-after-free.yaml",
+      "upstream_path": "rules/c/use-after-free.yaml",
+      "sha256": "c9c3d0eb87947adcf0313de1b3257e48c2b8bc59c332c990bcb4ad97f96add2b",
+      "rule_ids": [
+        "raptor-use-after-free"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "rules/c/incorrect-use-of-strncat.yaml",
+      "upstream_path": "rules/c/incorrect-use-of-strncat.yaml",
+      "sha256": "7450acff6d03c97e2b1c5e92a316afd86536b7b665478c1acbbf3d6206f69899",
+      "rule_ids": [
+        "raptor-incorrect-use-of-strncat"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    },
+    {
+      "path": "rules/c/use-of-source-size-in-copy.yaml",
+      "upstream_path": "rules/c/use-of-source-size-in-copy.yaml",
+      "sha256": "bdfdaa7e03356ab5dd34cd9eb28bafdc43e62b501500dccf1869a61debefa4fa",
+      "rule_ids": [
+        "raptor-use-of-source-size-in-copy"
+      ],
+      "license_notice": "MIT (repository LICENSE)"
+    }
+  ]
+}

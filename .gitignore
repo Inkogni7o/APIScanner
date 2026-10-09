@@ -17,3 +17,8 @@ reports/
 .uv-cache/
 .project/vendor-cache/
 .project/package-check/
+
+
+# AI
+AGENTS.md
+.project/

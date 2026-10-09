@@ -88,12 +88,6 @@ JavaScript/TypeScript, Go и Rust без Semgrep. Они учитывают HTTP
 `--framework drf`, `--framework express`, `--framework spring` и другие значения
 выбирают extractor; `--language typescript` фильтрует endpoints по языку.
 
-| Находка | Что проверять |
-| --- | --- |
-| Command Injection | Пользовательские данные в shell, динамическом коде или выборе executable |
-| Path Traversal | Пользовательские данные в пути чтения, записи, удаления или отправки файла |
-| SSRF | Пользовательские данные в URL исходящего HTTP-запроса |
-
 ## Semgrep
 
 Semgrep — опциональный дополнительный движок: обычный скан его не запускает.
@@ -112,20 +106,6 @@ adscan ./service --semgrep-config ./rules.yml       # собственные л�
 adscan ./service --semgrep-config ./a.yml --semgrep-config ./b.yml
 adscan ./service --semgrep --semgrep-binary /path/to/semgrep
 ```
-
-С `--semgrep` по умолчанию используются **81 локальное правило**: шесть правил ADScan,
-48 из [GitLab SAST rules](https://gitlab.com/gitlab-org/security-products/sast-rules)
-и 27 из [njsscan](https://github.com/ajinabraham/njsscan). Набор расширяет проверки Python,
-Go, Java и JS/TS: SQL/NoSQL injection, XSS, SSRF, path traversal, XXE, template injection,
-опасная десериализация, настройки TLS и JWT. Для Rust сохранена проверка запуска процессов.
-Часть правил отслеживает поток данных, часть отмечает опасную операцию или настройку:
-эксплуатируемость нужно проверять вручную.
-
-Правила поставляются с пакетом в зафиксированных версиях и не скачиваются при сканировании.
-Источники, версии и лицензии описаны в
-[каталоге сторонних правил](src/adscan/rules/third_party/README.md).
-`--semgrep-config` заменяет весь набор по умолчанию и включает Semgrep автоматически;
-registry-конфиги и URL не принимаются.
 
 Semgrep получает только выбранные исходники, локальные правила, отключённые metrics
 и проверку версии. Сервис и его сборка не запускаются. Такой режим соответствует
@@ -170,35 +150,6 @@ Confidence (`LOW`, `MEDIUM`, `HIGH`) описывает уверенность �
 находки, не утверждая наличие HTTP source → sink потока. Совпадающие результаты
 одного правила не повышают score повторно. JSON schema `1.1` добавляет `unmatched_findings`.
 Пример полного JSON: [docs/example-report.json](docs/example-report.json).
-
-## Конфигурация
-
-Создайте `.adscan.toml` в корне анализируемого сервиса:
-
-```toml
-[analysis]
-include_tests = false
-max_file_bytes = 2000000
-
-[severity]
-minimum = "info"
-
-[output]
-color = true
-
-[ignore]
-paths = ["generated", "src/legacy/*"]
-
-[semgrep]
-enabled = false
-configs = []               # локальные YAML относительно корня сервиса; [] = встроенные
-binary = "semgrep"
-timeout_seconds = 120
-```
-
-Каталоги зависимостей, сборки, caches и вложенные тесты по умолчанию пропускаются.
-Чтобы включить тесты, передайте `--include-tests`. Ошибка в одном исходном файле
-не прерывает анализ остальных; диагностика доступна с `-v` или `--debug`.
 
 ## Ограничения
 
